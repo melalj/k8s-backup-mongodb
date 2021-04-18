@@ -3,6 +3,7 @@
 ## Backup
 
 ```sh
+AUTH_DB_NAME=""
 DB_NAME=""
 MONGODB_URI="mongodb://..."
 BUCKET_URI="s3://bucket-name"
@@ -16,6 +17,7 @@ AWS_DEFAULT_REGION=""
 
 ```sh
 RESTORE_ARCHIVE_NAME=""
+AUTH_DB_NAME=""
 DB_NAME=""
 MONGODB_URI="mongodb://..."
 BUCKET_URI="s3://bucket-name"

@@ -9,6 +9,7 @@ COPY backup-mongodb.sh .
 RUN chmod +x backup-mongodb.sh
 
 ENV RESTORE_ARCHIVE_NAME ""
+ENV AUTH_DB_NAME ""
 ENV DB_NAME ""
 ENV MONGODB_URI ""
 ENV BUCKET_URI ""
