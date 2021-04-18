@@ -3,15 +3,16 @@
 set -e
 
 SCRIPT_NAME=backup-mongodb
-ARCHIVE_NAME=mongodump_$(date +%Y%m%d_%H%M%S).gz
+ARCHIVE_NAME=${DB_NAME}_$(date +%Y%m%d_%H%M%S).gz
 
-echo "[$SCRIPT_NAME] Dumping all MongoDB databases to compressed archive..."
-mongodump --oplog \
+echo "[$SCRIPT_NAME] Dumping MongoDB databases ${DB_NAME} to compressed archive..."
+mongodump \
+	--db "$DB_NAME" \
 	--archive="$ARCHIVE_NAME" \
 	--gzip \
 	--uri "$MONGODB_URI"
 
-echo "[$SCRIPT_NAME] Uploading compressed archive to S3 bucket..."
+echo "[$SCRIPT_NAME] Uploading ${ARCHIVE_NAME} to S3 bucket..."
 aws s3 cp "$ARCHIVE_NAME" "$BUCKET_URI"
 
 echo "[$SCRIPT_NAME] Cleaning up compressed archive..."

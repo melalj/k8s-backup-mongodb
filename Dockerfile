@@ -8,6 +8,7 @@ WORKDIR /scripts
 COPY backup-mongodb.sh .
 RUN chmod +x backup-mongodb.sh
 
+ENV DB_NAME ""
 ENV MONGODB_URI ""
 ENV BUCKET_URI ""
 ENV AWS_ACCESS_KEY_ID ""
