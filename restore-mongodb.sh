@@ -11,10 +11,10 @@ echo "[$SCRIPT_NAME] Restore MongoDB databases ${DB_NAME} from compressed archiv
 
 mongorestore "${RESTORE_EXTRA_PARAMS}" \
 	--authenticationDatabase "$AUTH_DB_NAME" \
-	--db "$DB_NAME" \
-	--gzip \
+	--nsInclude="$DB_NAME" \
 	--uri "$MONGODB_URI" \
-	"$RESTORE_ARCHIVE_NAME"
+	--gzip \
+	--archive="$RESTORE_ARCHIVE_NAME"
 
 
 echo "[$SCRIPT_NAME] Cleaning up compressed archive..."
