@@ -6,7 +6,9 @@ RUN apt install awscli -y
 WORKDIR /scripts
 
 COPY backup-mongodb.sh .
+COPY restore-mongodb.sh .
 RUN chmod +x backup-mongodb.sh
+RUN chmod +x restore-mongodb.sh
 
 ENV RESTORE_ARCHIVE_NAME ""
 ENV RESTORE_EXTRA_PARAMS ""
