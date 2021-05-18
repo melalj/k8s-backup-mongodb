@@ -6,7 +6,7 @@ SCRIPT_NAME=backup-mongodb
 ARCHIVE_NAME=${DB_NAME}_$(date +%Y%m%d_%H%M%S).gz
 
 echo "[$SCRIPT_NAME] Dumping MongoDB databases ${DB_NAME} to compressed archive..."
-mongodump \
+mongodump "${RESTORE_EXTRA_PARAMS}" \
 	--authenticationDatabase "$AUTH_DB_NAME" \
 	--db "$DB_NAME" \
 	--archive="$ARCHIVE_NAME" \
